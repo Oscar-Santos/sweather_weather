@@ -26,6 +26,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap'
 gem 'faraday'
+gem 'figaro'
 # Reduces boot times through caching; required in config/boot.rb
 
 
@@ -35,7 +36,6 @@ gem 'faraday'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
-  gem 'figaro'
   gem 'factory_bot_rails'
 	gem 'faker'
 end
@@ -49,9 +49,9 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'capybara'
+  #gem 'capybara'
   gem 'launchy'
-  gem 'vcr'
+  #gem 'vcr'
   gem 'webmock'
   gem 'shoulda-matchers'
   gem 'simplecov'
