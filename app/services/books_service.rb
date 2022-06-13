@@ -6,6 +6,5 @@ class BooksService < BaseService
       faraday.params['quantity'] = quantity
     end
     JSON.parse(response.body, symbolize_names: true)
-
   end
 end
