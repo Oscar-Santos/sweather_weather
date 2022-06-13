@@ -8,4 +8,5 @@ RSpec.describe ForecastService do
   it 'returns a city weather' do
     response_2 = ForecastService.get_destination_weather('39.7392364', '104.9848623')
   end
+  
 end
