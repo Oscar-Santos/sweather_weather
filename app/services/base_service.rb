@@ -8,4 +8,4 @@ class BaseService
     url = 'http://www.mapquestapi.com'
     Faraday.new(url: url)
   end
- end
+end

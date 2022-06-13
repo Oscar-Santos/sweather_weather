@@ -3,6 +3,7 @@ class HourlyForecast
               :hourly_temp,
               :hourly_conditions,
               :hourly_icon
+              
   def initialize(data)
     @hourly_time = translate_unix_time(data[:dt])
     @hourly_temp = data[:temp]

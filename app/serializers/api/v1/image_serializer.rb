@@ -1,4 +1,5 @@
 class Api::V1::ImageSerializer
+
   def self.image_show(image)
     {
       data: {
@@ -14,4 +15,5 @@ class Api::V1::ImageSerializer
       }
     }
   end
+  
 end

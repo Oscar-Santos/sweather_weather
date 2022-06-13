@@ -1,4 +1,5 @@
 class Api::V1::ForecastSerializer
+  
   def self.forecast_index(current_forecast, daily_forecasts, hourly_forecasts)
     {
       data: {
