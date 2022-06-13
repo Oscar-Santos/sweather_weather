@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :forecast, only: [:index] 
+      resources :forecast, only: [:index]
+
+      get '/backgrounds', to: 'backgrounds#show'
     end
   end
-  #/api/v1/forecast
 end

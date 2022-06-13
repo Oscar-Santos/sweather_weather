@@ -5,6 +5,7 @@ class BackgroundsService
     response = connection.get(end_point) do |faraday|
       faraday.params['client_id'] = ENV['unsplash_api_key']
       faraday.params['query'] = query
+      faraday.params['orientation'] = 'landscape'
 
     end
     JSON.parse(response.body, symbolize_names: true)
