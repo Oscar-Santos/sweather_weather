@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       get '/backgrounds', to: 'backgrounds#show'
 
       get 'book-search', to: 'books#index'
+
+      get 'breweries', to: 'breweries#index'
     end
   end
 end
