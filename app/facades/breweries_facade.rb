@@ -9,7 +9,6 @@ class BreweriesFacade
   end
 
   def self.remove_state(city)
-
     city.split.first.chop
   end
 end

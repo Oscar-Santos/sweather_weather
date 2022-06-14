@@ -9,6 +9,5 @@ class Brewery
     @name = data[:name]
     @city = data[:city]
     @brewery_type = data[:brewery_type]
-
   end
 end

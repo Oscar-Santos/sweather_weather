@@ -8,6 +8,5 @@ class Api::V1::BreweriesController < ApplicationController
     else
       render json:{message: 'quantity has to be greater than 0'}
     end
-  
   end
 end
