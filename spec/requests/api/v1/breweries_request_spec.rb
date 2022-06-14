@@ -7,37 +7,46 @@ RSpec.describe 'breweries serializer' do
     get '/api/v1/breweries?location=denver&quantity=5'
     parse = JSON.parse(response.body, symbolize_names: true)
 
-    expect(response.body).to have_key(:data)
-    expect(response.body[:data]).to have_key(:id)
-    expect(response.body[:data]).to have_key(:type)
-    expect(response.body[:data]).to have_key(:id)
-    expect(response.body[:data]).to have_key(:attributes)
-    
-#     {
-#   "data": {
-#     "id": "null",
-#     "type": "breweries",
-#     "attributes": {
-#       "destination": "denver,co",
-#       "forecast": {
-#         "summary": "Cloudy with a chance of meatballs",
-#         "temperature": "83 F"
-#       },
-#       "breweries": [
-#         {
-#           "id": 10129,
-#           "name": "Denver Beer Co Olde Town Arvada",
-#           "brewery_type": "micro"
-#         },
-#         {
-#           "id": 12906,
-#           "name": "New Image Brewing Co",
-#           "brewery_type": "brewpub"
-#         },
-#         { ... same format for breweries 3, 4 and 5 ... }
-#       ]
-#     }
-#   }
-# }
+    expect(parse).to have_key(:data)
+    expect(parse[:data]).to be_a(Hash)
+
+
+    expect(parse[:data]).to have_key(:id)
+    expect(parse[:data][:id]).to eq(nil)
+
+    expect(parse[:data]).to have_key(:type)
+    expect(parse[:data][:type]).to be_a(String)
+
+
+    expect(parse[:data]).to have_key(:attributes)
+    expect(parse[:data][:attributes]).to be_a(Hash)
+
+    expect(parse[:data][:attributes]).to have_key(:destination)
+    expect(parse[:data][:attributes][:destination]).to be_a(String)
+
+    expect(parse[:data][:attributes]).to have_key(:forecast)
+    expect(parse[:data][:attributes][:forecast]).to be_a(Hash)
+
+    expect(parse[:data][:attributes]).to have_key(:breweries)
+    expect(parse[:data][:attributes][:breweries]).to be_a(Array)
+
+    expect(parse[:data][:attributes][:forecast]).to have_key(:summary)
+    expect(parse[:data][:attributes][:forecast][:summary]).to be_a(String)
+
+    expect(parse[:data][:attributes][:forecast]).to have_key(:temperature)
+    expect(parse[:data][:attributes][:forecast][:temperature]).to be_a(Float)
+
+    expect(parse[:data][:attributes][:breweries].first).to have_key(:id)
+    expect(parse[:data][:attributes][:breweries].first[:id]).to be_a(String)
+
+    expect(parse[:data][:attributes][:breweries].first).to have_key(:name)
+    expect(parse[:data][:attributes][:breweries].first[:name]).to be_a(String)
+
+    expect(parse[:data][:attributes][:breweries].first).to have_key(:brewery_type)
+    expect(parse[:data][:attributes][:breweries].first[:brewery_type]).to be_a(String)
+
+    expect(parse[:data][:attributes][:breweries].count).to eq(5)
+
+
   end
 end
