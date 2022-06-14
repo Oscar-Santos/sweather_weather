@@ -49,4 +49,14 @@ RSpec.describe 'breweries serializer' do
 
 
   end
+
+  
+
+    it 'quantity has to be greater than 0' do
+        get '/api/v1/breweries?location=denver&quantity=0'
+      parse = JSON.parse(response.body, symbolize_names: true)
+
+      expect(parse).to have_key(:message)
+      expect(parse[:message]).to eq('quantity has to be greater than 0')
+    end
 end

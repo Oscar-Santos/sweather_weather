@@ -7,7 +7,10 @@ RSpec.describe BreweriesFacade do
     expect(breweries).to be_a(Array)
     expect(breweries.first).to be_a(Brewery)
     expect(breweries.count).to eq(5)
+  end
 
+  it 'removes the state' do
+    expect(BreweriesFacade.remove_state("denver, co")).to eq('denver')
 
   end
 end
