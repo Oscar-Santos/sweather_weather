@@ -51,7 +51,7 @@ group :test do
   gem 'rspec-rails'
   #gem 'capybara'
   gem 'launchy'
-  #gem 'vcr'
+  gem 'vcr'
   gem 'webmock'
   gem 'shoulda-matchers'
   gem 'simplecov'

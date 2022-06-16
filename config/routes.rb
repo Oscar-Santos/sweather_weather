@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get 'book-search', to: 'books#index'
 
       get 'breweries', to: 'breweries#index'
+
+      post 'road_trip', to: 'road_trip#create'
     end
   end
 end
