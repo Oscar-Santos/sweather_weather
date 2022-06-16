@@ -10,7 +10,7 @@ class Api::V1::RoadTripController < ApplicationController
           render json: Api::V1::RoadTripSerializer.get_roadtrip(params[:origin], params[:destination], trip)
         end
     elsif user.nil?
-      render json: { message: "bad request please try again" }, status: 401
+      render json: { message: "invalid api key" }, status: 401
     end
   end
 end
