@@ -1,18 +1,23 @@
-  class ForecastFacade
+class ForecastFacade
+  def self.get_each_weather(city)
+    all_weather = ForecastService.get_city_weather(city)
 
-    def self.get_all_weather(city)
-      all_weather = ForecastService.get_city_weather(city)
+    current = CurrentForecast.new(all_weather[:current])
+    hourly = get_hourly_weather(all_weather[:hourly])
+    daily = get_daily_weather(all_weather[:daily])
 
-      current = CurrentForecast.new(all_weather)
+    [current, daily, hourly]
+  end
 
-      daily = all_weather[:daily][0..4].map do |daily_forecast|
-        DailyForecast.new(daily_forecast)
-      end
-
-      hourly = all_weather[:hourly][0..7].map do |hourly_forecast|
-        HourlyForecast.new(hourly_forecast)
-      end
-
-      [current, daily, hourly]
+  def self.get_hourly_weather(weather)
+    weather[0..7].map do |hourly_forecast|
+      HourlyForecast.new(hourly_forecast)
     end
   end
+
+  def self.get_daily_weather(weather)
+    weather[0..4].map do |daily_weather|
+      DailyForecast.new(daily_weather)
+    end
+  end
+end
