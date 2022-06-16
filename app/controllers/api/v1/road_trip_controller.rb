@@ -4,7 +4,7 @@ class Api::V1::RoadTripController < ApplicationController
     if user.present?
       trip = RoadTripFacade.get_roadtrip_details(params[:origin], params[:destination])
         if trip == "impossible trip"
-          render json: { message: "trip is impossible"}
+          render json: { error: "trip is impossible"}
         else
           destination_conditions = RoadTripFacade.get_destination_conditions(params[:destination], trip.travel_time)
           render json: Api::V1::RoadTripSerializer.get_roadtrip(params[:origin], params[:destination], trip)
