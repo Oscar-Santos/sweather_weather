@@ -14,8 +14,8 @@ class BaseService
     Faraday.new(url: url)
   end
 
-  def self.breweries_connection
-    url = 'https://api.openbrewerydb.org'
-    Faraday.new(url: url)
-  end
+  # def self.breweries_connection
+  #   url = 'https://api.openbrewerydb.org'
+  #   Faraday.new(url: url)
+  # end
 end
